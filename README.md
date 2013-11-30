@@ -5,6 +5,7 @@ An IRC-bot utilizing the API from [kaffe.abakus.no](http://kaffe.abakus.no) to r
 
 ## Installation
 	
+	virtualenv venv
 	source venv/bin/activate
 	pip install -r requirements.txt
 	
