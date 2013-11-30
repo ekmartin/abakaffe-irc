@@ -6,7 +6,7 @@ import simplejson
 from urlparse import urljoin
 from datetime import datetime
 
-class AbakusCoffeeBot(SingleServerIRCBot):
+class AbakusCoffeeBot(irc.bot.SingleServerIRCBot):
     API_URL = "http://kaffe.abakus.no/api/"
     def __init__(self, channelList, nickname, server, port=6667):
         irc.bot.SingleServerIRCBot.__init__(self, [(server, port)], nickname, nickname.lower())
