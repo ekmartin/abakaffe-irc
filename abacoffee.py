@@ -48,7 +48,6 @@ class AbakusCoffeeBot(irc.bot.SingleServerIRCBot):
             return message
 
     def print_kaffe(self, target):
-        print "printkaffe"
         connection = self.connection
         f = self.get_file(self.API_URL, 'status')
         status_json = simplejson.load(f)
