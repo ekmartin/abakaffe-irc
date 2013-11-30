@@ -14,7 +14,6 @@ class AbakusCoffeeBot(irc.bot.SingleServerIRCBot):
     def __init__(self, channelList, nickname, server, port=6667):
         irc.bot.SingleServerIRCBot.__init__(self, [(server, port)], nickname, nickname.lower())
         self.channelList = channelList
-        print self.channelList,channelList
 
     def get_file(self, api_base, api_module):
         url = urljoin(api_base, api_module)
@@ -81,7 +80,6 @@ class AbakusCoffeeBot(irc.bot.SingleServerIRCBot):
 def main():
     import sys
     if len(sys.argv) != 4:
-        print (sys.argv)
         print("Usage: python abacoffee.py <server[:port]> <channel1,channel2,channel3..> <nickname>")
         sys.exit(1)
 
