@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+#coding: utf8 
+
 import irc.bot
 import irc.strings
 import os
@@ -58,7 +61,7 @@ class AbakusCoffeeBot(irc.bot.SingleServerIRCBot):
         time_delta = datetime.now() - last_start
         
         if on:
-            connection.privmsg(target, "Kaffetrakteren er paa.")
+            connection.privmsg(target, "Kaffetrakteren er på.")
 
         connection.privmsg(target, self.get_status(time_delta))
 
