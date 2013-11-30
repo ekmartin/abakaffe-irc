@@ -1,5 +1,4 @@
 import irc.bot
-from irc.bot import SingleServerIRCBot
 import irc.strings
 import os
 import urllib2
@@ -7,10 +6,8 @@ import simplejson
 from urlparse import urljoin
 from datetime import datetime
 
-irc.bot.DEBUG = True
 class AbakusCoffeeBot(SingleServerIRCBot):
     API_URL = "http://kaffe.abakus.no/api/"
-    admins = ["Ek"]
     def __init__(self, channelList, nickname, server, port=6667):
         irc.bot.SingleServerIRCBot.__init__(self, [(server, port)], nickname, nickname)
         self.channelList = channelList
@@ -83,7 +80,7 @@ def main():
     import sys
     if len(sys.argv) != 4:
         print (sys.argv)
-        print("Usage: testbot <server[:port]> <channel1,channel2,channel3..> <nickname>")
+        print("Usage: python abacoffee.py <server[:port]> <channel1,channel2,channel3..> <nickname>")
         sys.exit(1)
 
     s = sys.argv[1].split(":", 1)
