@@ -70,7 +70,8 @@ class AbakusCoffeeBot(irc.bot.SingleServerIRCBot):
     def on_privmsg(self, connection, event):
         command = event.arguments[0].split()
         if command[0] == "!join":
-            connection.join(command[1])
+            if len(command) > 1:
+                connection.join(command[1])
         elif command[0] == "!kaffe":
             self.print_kaffe(event.target)
 
@@ -83,7 +84,8 @@ class AbakusCoffeeBot(irc.bot.SingleServerIRCBot):
         if command[0] == "!kaffe":
             self.print_kaffe(event.target)
         elif command[0] == "!join":
-            connection.join(command[1])
+            if len(command) > 1:
+                connection.join(command[1])
         return
 
 
