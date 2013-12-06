@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-#coding: utf8 
-
 import irc.bot
 import irc.strings
 import os
