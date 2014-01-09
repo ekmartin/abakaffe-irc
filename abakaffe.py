@@ -21,6 +21,7 @@ class AbakusCoffeeBot(irc.bot.SingleServerIRCBot):
 
     def get_status(self, time_delta):
         message = ""
+        print "getting status"
         if int(time_delta.days):
             message += "Det er ingen som har traktet kaffe i dag."
         else:
@@ -44,7 +45,7 @@ class AbakusCoffeeBot(irc.bot.SingleServerIRCBot):
                 else:
                     message += str(minutes) + " minutter "
             message += "siden."
-            return message
+        return message
 
     def print_kaffe(self, target):
         connection = self.connection
