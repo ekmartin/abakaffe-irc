@@ -9,11 +9,8 @@ from datetime import datetime
 class AbakusCoffeeBot(irc.bot.SingleServerIRCBot):
     API_URL = "http://kaffe.abakus.no/api/"
     def __init__(self, channelList, nickname, server, port=6667):
-        try:
-            irc.bot.SingleServerIRCBot.__init__(self, [(server, port)], nickname, nickname.lower())
-            self.channelList = channelList
-        except:
-            pass
+        irc.bot.SingleServerIRCBot.__init__(self, [(server, port)], nickname, nickname.lower())
+        self.channelList = channelList
 
     def get_file(self, api_base, api_module):
         try:
@@ -75,22 +72,16 @@ class AbakusCoffeeBot(irc.bot.SingleServerIRCBot):
             pass
 
     def on_nicknameinuse(self, connection, event):
-        try:
-            connection.nick(connection.get_nickname() + "_")
-        except:
-            pass
+        connection.nick(connection.get_nickname() + "_")
 
 
     def on_privmsg(self, connection, event):
-        try:
-            command = event.arguments[0].split()
-            if command[0] == "!join":
-                if len(command) > 1:
-                    connection.join(command[1])
-            elif command[0] == "!kaffe":
-                self.print_kaffe(event.target)
-        except:
-            pass
+        command = event.arguments[0].split()
+        if command[0] == "!join":
+            if len(command) > 1:
+                connection.join(command[1])
+        elif command[0] == "!kaffe":
+            self.print_kaffe(event.target)
 
     def on_welcome(self, connection, event):
         for chan in self.channelList:
@@ -100,17 +91,14 @@ class AbakusCoffeeBot(irc.bot.SingleServerIRCBot):
                 pass
 
     def on_pubmsg(self, connection, event):
-         try:
-            command = event.arguments[0].split()
-            if command[0] == "!kaffe":
+        command = event.arguments[0].split()
+        if command[0] == "!kaffe":
 
-                self.print_kaffe(event.target)
-            elif command[0] == "!join":
-                if len(command) > 1:
-                    connection.join(command[1])
-            return
-         except:
-             pass
+            self.print_kaffe(event.target)
+        elif command[0] == "!join":
+            if len(command) > 1:
+                connection.join(command[1])
+        return
 
 
 def main():
