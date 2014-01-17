@@ -1,3 +1,5 @@
+#### The new bot uses hubot and can be found here: https://github.com/ekmartin/abakaffe-irc-hubot
+
 abakaffe-irc
 ============
 
